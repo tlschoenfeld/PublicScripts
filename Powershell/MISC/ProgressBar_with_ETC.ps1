@@ -1,5 +1,5 @@
 ﻿# Data Source
-$Information = 1..1000000
+$Information = 
 
 # Initialize Tracking
 $start = Get-Date
@@ -7,7 +7,7 @@ $i = 0
 $total = $Information.Count
 
 # Loop
-foreach ($piece in $information) {
+foreach ($row in $information) {
 	# Progress Tracking
 	$i++
 	$prct = [Math]::Round((($i / $total) * 100.0), 2)
