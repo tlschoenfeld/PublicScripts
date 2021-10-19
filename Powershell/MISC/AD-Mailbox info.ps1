@@ -116,8 +116,9 @@ function Show-tooltesting_psf {
 		$progressbar1.Minimum = 0
 		$progressbar1.Value=1
 		
-		$AD = Get-ADUser $textbox1.Text -Properties * | Select DisplayName, userprincipalname, Enabled, Department, EmailAddress, fsuEduAffiliation, fsuEduEMPLID, LastLogonDate, LockedOut, MemberOf, PasswordExpired, proxyAddresses
-		$richtextbox1.Text = $AD | Select DisplayName, userprincipalname, Enabled, Department, EmailAddress, fsuEduAffiliation, fsuEduEMPLID, LastLogonDate, LockedOut, PasswordExpired| Out-String
+		$AD = Get-ADUser $textbox1.Text -Properties * 
+		$richtextbox1.Text = $AD <# Do Select Object for what properties you want to show for AD object#>| Out-String
+
 		$progressbar1.Value = 2
 		#Grab Group Membership
 		$membersof = @()
